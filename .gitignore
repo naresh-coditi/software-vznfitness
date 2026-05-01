@@ -1,5 +1,7 @@
 /node_modules
 /public/storage
+/public/build
+/public/hot
 /storage/*.key
 /storage/app/public
 /storage/framework/cache
@@ -16,4 +18,4 @@ npm-debug.log
 yarn-error.log
 .DS_Store
 .idea
-.vscode
+.vscode 
