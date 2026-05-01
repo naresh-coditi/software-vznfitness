@@ -93,6 +93,7 @@ use App\Http\Controllers\UpcomingRenewalController;
         // Members Routes
         Route::controller(UserController::class)->prefix('members')->name('user.')->group(function () {
             Route::get('/', 'index')->name('index');
+            Route::get('/search', 'search')->name('search');
             Route::get('/create/{user?}', 'create')->name('create');
             Route::get('/{user}/view', 'view')->name('view');
             Route::get('/{user}/edit', 'edit')->name('edit');

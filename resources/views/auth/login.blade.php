@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <div class="relative bg-gray-200 h-full 2xl:h-screen overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center h-screen" style="background-image: url('{{ asset('images/cover/test2.jpg') }}');"></div>
+        <div class="absolute inset-0 bg-cover bg-center " style="background-image: url('{{ asset('images/cover/test2.jpg') }}');"></div>
+       
         
         <div class="flex items-center justify-center h-full">
             <div class="max-w-md mx-auto w-full">
