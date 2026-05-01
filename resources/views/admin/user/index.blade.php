@@ -70,7 +70,12 @@
             <div class="flex flex-wrap justify-end gap-4 w-full md:w-auto order-1 md:order-2 mb-6 md:mb-0">
                 <x-add-button-link class="!mt-0" content="Add Member" url="{{ route(auth()->user()->roleName . 'user.create') }}" />
                 <button @click="importcsv = !importcsv" type="button"
-                    class="rounded-md bg-white px-6 py-2 text-sm font-semibold text-black shadow-sm border">
+                    class="rounded-md bg-white px-6 py-2 text-sm font-semibold text-black shadow-sm border flex gap-2 items-center">
+                    <svg class="size-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"/>
+</svg>
+
+
                     {{ __('Import csv') }}
                 </button>
             </div>
@@ -152,7 +157,7 @@
             @endif
             <x-table-row :class="$class">
                 <x-table-data>
-                    <span class="relative flex flex-col items-center">
+                    <span class="relative flex gap-3 flex-row items-start">
                     <span class="absolute top-0 right-0">
                         @if ($user->personalTrainer)
                         <a
@@ -161,16 +166,17 @@
                             @endif
                     </span>
                         @if($user->image->path)
-                        <a href="{{ route(auth()->user()->roleName . 'user.view', $user) }}"><img class="rounded-full w-16 h-16 object-cover hover:scale-95 cursor-pointer"
+                        <a href="{{ route(auth()->user()->roleName . 'user.view', $user) }}"><img class="rounded-full w-15 h-15 object-cover hover:scale-95 cursor-pointer"
                         id="profileImage"
                         src="{{ profileImage($user->image->path) }}" alt="Profile Picture"></a>
             
                     @elseif($user->userProfile->gender == 'Male')
-                    <a href="{{ route(auth()->user()->roleName . 'user.view', $user) }}"><svg class="w-12 h-12 hover:scale-95 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" fill="currentColor"><path d="m14.145 16.629c-.04-.527-.064-1.142-.064-1.762 0-.255.004-.51.012-.763l-.001.037c.731-.76 1.219-1.758 1.333-2.868l.002-.021c.339-.028.874-.358 1.03-1.666.016-.074.025-.16.025-.248 0-.396-.188-.747-.48-.97l-.003-.002c.552-1.66 1.698-6.796-2.121-7.326-.393-.69-1.399-1.04-2.707-1.04-5.233.096-5.864 3.951-4.72 8.366-.294.226-.482.577-.482.972 0 .088.009.174.027.257l-.001-.008c.16 1.306.691 1.638 1.03 1.666.127 1.134.628 2.133 1.374 2.888.007.214.011.466.011.718 0 .623-.023 1.24-.069 1.851l.005-.081c-1.038 2.784-8.026 2.002-8.346 7.371h22.458c-.322-5.369-7.278-4.587-8.314-7.371z"></path></svg></a>
+                    <a href="{{ route(auth()->user()->roleName . 'user.view', $user) }}" class="rounded-lg border  border-slate-200 p-1 text-slate-400 "><svg class="w-12 h-12 hover:scale-95 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" fill="currentColor"><path d="m14.145 16.629c-.04-.527-.064-1.142-.064-1.762 0-.255.004-.51.012-.763l-.001.037c.731-.76 1.219-1.758 1.333-2.868l.002-.021c.339-.028.874-.358 1.03-1.666.016-.074.025-.16.025-.248 0-.396-.188-.747-.48-.97l-.003-.002c.552-1.66 1.698-6.796-2.121-7.326-.393-.69-1.399-1.04-2.707-1.04-5.233.096-5.864 3.951-4.72 8.366-.294.226-.482.577-.482.972 0 .088.009.174.027.257l-.001-.008c.16 1.306.691 1.638 1.03 1.666.127 1.134.628 2.133 1.374 2.888.007.214.011.466.011.718 0 .623-.023 1.24-.069 1.851l.005-.081c-1.038 2.784-8.026 2.002-8.346 7.371h22.458c-.322-5.369-7.278-4.587-8.314-7.371z"></path></svg></a>
                     @else
-                    <a href="{{ route(auth()->user()->roleName . 'user.view', $user) }}"><svg class="w-12 h-12 hover:scale-95 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" fill="currentColor"><path d="m14.041 16.683c-.015-.168-.026-.439-.035-.72 2.549-.261 4.338-.872 4.338-1.585-.007 0-.006-.03-.006-.041-1.906-1.718 1.652-13.92-4.971-13.674-.555-.418-1.256-.669-2.015-.669-.061 0-.121.002-.181.005h.008c-8.971.678-5.004 12.203-7.049 14.378h-.004s0 0 0 0c.008.698 1.736 1.298 4.211 1.566-.007.17-.022.381-.054.734-1.027 2.77-7.962 1.994-8.282 7.323h22.294c-.319-5.33-7.225-4.554-8.253-7.317z"></path></svg></a>
+                    <a href="{{ route(auth()->user()->roleName . 'user.view', $user) }}"  class="rounded-lg border  border-slate-200 p-1 text-slate-400"><svg class="w-12 h-12 hover:scale-95 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" fill="currentColor"><path d="m14.041 16.683c-.015-.168-.026-.439-.035-.72 2.549-.261 4.338-.872 4.338-1.585-.007 0-.006-.03-.006-.041-1.906-1.718 1.652-13.92-4.971-13.674-.555-.418-1.256-.669-2.015-.669-.061 0-.121.002-.181.005h.008c-8.971.678-5.004 12.203-7.049 14.378h-.004s0 0 0 0c.008.698 1.736 1.298 4.211 1.566-.007.17-.022.381-.054.734-1.027 2.77-7.962 1.994-8.282 7.323h22.294c-.319-5.33-7.225-4.554-8.253-7.317z"></path></svg></a>
                     @endif
-                    <span class="font-extrabold">{{ $user->member_id }}</span>
+                   <div class="flex flex-col">
+                     <span class="font-extrabold">{{ $user->member_id }}</span>
                     <span>{{ $user->userProfile->fullName }} </span>
                     <span>{{ $user->phone }}</span>
                     @if ($user->exit_status)
@@ -179,6 +185,7 @@
                             class="inline-block mt-2 rounded-md bg-red-100 px-1 py-1 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-600/70 text-center">Exited
                         </span>
                     </div>
+                   </div>
                     @endif
                     </span>
 

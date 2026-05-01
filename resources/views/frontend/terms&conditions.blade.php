@@ -1,7 +1,7 @@
 <x-guest-layout>
     @include('frontend.layouts.header')
     <x-auth-session-status class="mb-4" :status="session('status')" />
-    <section class="flex flex-col items-center justify-center gap-8 mb-5">
+    <section class="container mx-auto flex flex-col items-center justify-center gap-8 mb-5">
         <section class="space-y-8 md:p-12 p-6 md:mt-5 mt-2">
             <article class="space-y-4">
                 <h1 class="md:text-3xl text-xl font-semibold mb-4">Terms and Conditions</h1>

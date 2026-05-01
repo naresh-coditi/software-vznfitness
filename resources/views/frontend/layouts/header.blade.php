@@ -1,4 +1,4 @@
-<header class="bg-gray-400/80">
+<header class="bg-gray-950">
     <div x-data="{ open: false }">
         <nav class="mx-auto flex items-center justify-between p-2 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
@@ -20,18 +20,18 @@
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('cancellation.and.refund.policy') }}"
-                    class="text-lg font-semibold leading-6 text-black hover:border-b-2 border-orange-600">
+                    class="text-lg font-semibold leading-6 text-gray-300 hover:text-amber-600 transition-colors">
                     {{ __('Cancellation/Refund Policy') }}
                 </a>
-                <a href="{{ route('privacy.and.policy') }}" class="text-lg font-semibold leading-6 text-black hover:border-b-2 border-orange-600">
+                <a href="{{ route('privacy.and.policy') }}" class="text-lg font-semibold leading-6 text-gray-300 hover:text-amber-600 transition-colors">
                     {{ __('Privacy Policy') }}
                 </a>
-                <a href="{{ route('terms.and.conditions') }}" class="text-lg font-semibold leading-6 text-black hover:border-b-2 border-orange-600">
+                <a href="{{ route('terms.and.conditions') }}" class="text-lg font-semibold leading-6 text-gray-300 hover:text-amber-600 transition-colors">
                     {{ __('Terms & Conditions') }}
                 </a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-5">
-                <a href="{{ route('login') }}" class="text-xl font-semibold leading-6 text-black flex items-center gap-2">
+                <a href="{{ route('login') }}" class="text-xl font-semibold leading-6 text-white hover:text-amber-600 transition-colors flex items-center gap-2">
                     {{ __('Log in') }}<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M9 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2"></path>

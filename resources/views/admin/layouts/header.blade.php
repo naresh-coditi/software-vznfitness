@@ -32,94 +32,14 @@
                     </a>
                 </div>
 
-            </div>
-
-            <div class="hidden md:flex flex-1 items-center px-6" x-data="memberSearch()">
-                <div class="relative w-full max-w-2xl mx-auto" @click.outside="open = false">
-                    <div
-                        class="flex items-center gap-3 rounded-2xl border border-indigo-500 bg-[#3f3d7a] px-4 py-3 text-white shadow-lg shadow-indigo-200/40">
-                        <svg class="h-5 w-5 text-white/60" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m21 21-4.35-4.35m1.85-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" />
-                        </svg>
-                        <input type="search" x-model="query" @input.debounce.300ms="fetchMembers()"
-                            placeholder="Search - Member | Enquiry"
-                            class="w-full border-0 bg-transparent text-white placeholder:text-white/60 focus:outline-none focus:ring-0" />
-                    </div>
-
-                    <div x-cloak x-show="open" x-transition
-                        class="absolute left-0 right-0 top-full z-50 mt-3 h-[32rem] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
-                        <template x-if="loading">
-                            <div class="flex items-center gap-3 px-5 py-4 text-sm font-medium text-slate-600">
-                                <svg class="h-4 w-4 animate-spin text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                        stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor"
-                                        d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                    </path>
-                                </svg>
-                                Searching member...
-                            </div>
-                        </template>
-
-                        <template x-if="!loading && results.length === 0">
-                            <div class="px-5 py-4 text-sm text-slate-500">No member found.</div>
-                        </template>
-
-                        <div class="h-[calc(32rem-3.5rem)] overflow-y-auto">
-                            <template x-for="member in results" :key="member.id">
-                                <a :href="member.view_url"
-                                    class="flex min-h-[14rem] items-stretch gap-4 border-b border-slate-100 p-4 transition hover:bg-slate-50 last:border-b-0">
-                                    <div class="flex w-40 flex-col items-center justify-center border-r border-slate-100 pr-4">
-                                        <div
-                                            class="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-slate-100">
-                                            <img :src="member.image_url || defaultAvatar" alt="Member"
-                                                class="h-full w-full object-cover">
-                                        </div>
-                                        <div class="mt-3 text-center">
-                                            <div class="text-lg font-semibold text-slate-800" x-text="member.full_name"></div>
-                                            <div class="mt-1 text-sm text-slate-500">
-                                                Code: <span x-text="member.member_id"></span>
-                                            </div>
-                                            <div class="text-sm text-slate-500" x-text="member.phone"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="min-w-0 flex-1 rounded-2xl border-l-4 border-indigo-500 bg-slate-50 p-4">
-                                        <div class="flex items-start justify-between gap-4">
-                                            <div>
-                                                <div class="text-lg font-semibold text-slate-800" x-text="member.membership_name || 'Membership'"></div>
-                                                <div class="mt-3 space-y-2 text-sm text-slate-600">
-                                                    <div>Start: <span x-text="member.start_date || '-'" ></span></div>
-                                                    <div>End: <span x-text="member.end_date || '-'" ></span></div>
-                                                </div>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-xl font-bold text-emerald-600"
-                                                    x-text="member.membership_amount ? '₹' + member.membership_amount : '₹0'"></div>
-                                                <div class="mt-10 text-sm font-semibold uppercase tracking-wide text-slate-900"
-                                                    x-text="member.status"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="mt-4 flex items-center justify-between text-sm">
-                                            <div class="text-slate-600">
-                                                Balance:
-                                                <span class="font-semibold text-red-500"
-                                                    x-text="member.remaining_amount ? '₹' + member.remaining_amount : '₹0'"></span>
-                                            </div>
-                                            <div class="text-xs font-medium text-slate-400">
-                                                Tap to open member profile
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </template>
-                        </div>
-                    </div>
-                </div>
+                {{-- <!-- toggel sidebar -->
+                <div class="text-white cursor-pointer hidden md:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div> --}}
             </div>
             <div class="hidden md:flex items-stretch">
                 <!-- Profile Menu DT -->
@@ -172,50 +92,3 @@
         </div>
     </div>
 </header>
-
-@push('script')
-<script>
-    function memberSearch() {
-        return {
-            query: '',
-            results: [],
-            loading: false,
-            open: false,
-            timer: null,
-            defaultAvatar: "{{ asset('images/default-avatar.svg') }}",
-            async fetchMembers() {
-                const search = this.query.trim();
-
-                if (!search) {
-                    this.results = [];
-                    this.open = false;
-                    return;
-                }
-
-                clearTimeout(this.timer);
-                this.timer = setTimeout(async () => {
-                    this.loading = true;
-                    this.open = true;
-
-                    try {
-                        const url = "{{ route(auth()->user()->roleName . 'user.search') }}?search=" + encodeURIComponent(search);
-                        const response = await fetch(url, {
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
-                        const payload = await response.json();
-                        this.results = payload.data ?? [];
-                        this.open = true;
-                    } catch (error) {
-                        this.results = [];
-                        this.open = true;
-                    } finally {
-                        this.loading = false;
-                    }
-                }, 200);
-            }
-        }
-    }
-</script>
-@endpush

@@ -1,7 +1,7 @@
 <section x-data="sidebar" x-on:togglemenubar.window="mobilemenue = !mobilemenue" x-cloak>
-    <section class="top-0 bg-slate-900 text-black min-w-52 shadow-lg fixed inset-y-0 left-0 z-50 hidden md:block">
+    <section class="top-0 bg-white text-black min-w-52 shadow-lg fixed inset-y-0 left-0 z-50 hidden md:block">
 
-        <header class=" h-[64px] bg-white shadow-lg px-4 md:sticky top-0 z-40">
+        <header class=" h-[64px] bg-white   px-4 md:sticky top-0 z-40">
             <!-- logo -->
             <a href="{{ route(auth()->user()->roleName . 'dashboard') }}"
                 class="text-white flex items-center space-x-2 group hover:text-white">
@@ -17,7 +17,7 @@
                 <!-- ITEM -->
                 <li>
                     <a href="{{ route(auth()->user()->roleName . 'dashboard') }}"
-                        class="{{ request()->is('*dashboard') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded">
+                        class="{{ request()->is('*dashboard') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded">
                         <div class="pr-2">
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <button @click="open = (open == 'users' ? null : 'users')"
-                        class="flex text-white items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="flex text-black items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <span class="flex items-center gap-2">
                             <svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -60,7 +60,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'user.index') }}"
-                                class="{{ request()->is('*/members*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*/members*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"
                                         fill="currentColor">
@@ -77,7 +77,7 @@
                            <!-- Liability -->
                  <li>
                     <a href="{{ route(auth()->user()->roleName . 'liability.index') }}"
-                        class="{{ request()->is('*liability/index*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-1 rounded">
+                        class="{{ request()->is('*liability/index*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-1 rounded">
                         <div class="pr-2">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 72 56" fill="currentColor">
                                 <title>money</title>
@@ -90,7 +90,7 @@
                 </li> 
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'trainers.index') }}"
-                                class="{{ request()->is('*/trainers*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*/trainers*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-1">
                                     <svg class="w-5 h-5" width="24" height="24" stroke-width="1.5"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'lead.index') }}"
-                                class="{{ request()->is('*leads*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                                class="{{ request()->is('*leads*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -132,7 +132,7 @@
                         </li>
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'deleted.member.index') }}"
-                                class="{{ request()->is('*deleted-members*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                                class="{{ request()->is('*deleted-members*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -148,7 +148,7 @@
                         @can('isAdmin')
                             <li>
                                 <a href="{{ route(auth()->user()->roleName . 'staff.index') }}"
-                                    class="{{ request()->is('*staffs*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }}  flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                                    class="{{ request()->is('*staffs*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }}  flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                                     <div class="pr-2">
                                         <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                             id="mdi-human-male-board-poll" viewBox="0 0 24 24">
@@ -167,7 +167,7 @@
                  <!-- Unified Search -->
                  {{-- <li>
                     <a href="{{ route(auth()->user()->roleName . 'unified.search') }}"
-                        class="{{ request()->is('*unified-search*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-1 rounded">
+                        class="{{ request()->is('*unified-search*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-1 rounded">
                         <div class="pr-2">
                         <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm0 4H4v2h16V8zm-8 4H4v2h8v-2zm8 0h-6v6h6v2h2v-2h-2v-6zm-4 4v-2h2v2h-2zm-4 0H4v2h8v-2z" fill="currentColor"></path></svg>
                         </div>
@@ -177,7 +177,7 @@
                 {{-- personal trainer --}}
                 <li>
                     <a href="{{ route(auth()->user()->roleName . 'pt.index') }}"
-                        class="{{ request()->is('*personal_training*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="{{ request()->is('*personal_training*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <div>
                             <svg class="w-6 h-6" width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -205,7 +205,7 @@
                     {{-- Branch --}}
                     <li>
                         <a href="{{ route(auth()->user()->roleName . 'branch.index') }}"
-                            class="{{ request()->is('*branches*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                            class="{{ request()->is('*branches*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                             <div class="pr-2">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                     fill="currentColor">
@@ -225,7 +225,7 @@
                     {{-- Membership Plans --}}
                     <li>
                         <a href="{{ route(auth()->user()->roleName . 'membershipplan.index') }}"
-                            class="{{ request()->is('*/plans*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                            class="{{ request()->is('*/plans*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                             <div class="pr-2">
                                 <svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
@@ -240,7 +240,7 @@
                 @endcan
                 <li>
                     <button @click="open = (open == 'reports' ? null : 'reports')"
-                        class="flex text-white items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="flex text-black items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <span class="flex items-center gap-2">
                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
                                 fill="currentColor">
@@ -278,7 +278,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'upcoming.renewal.index') }}"
-                                class="{{ request()->is('*upcoming-renewal*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*upcoming-renewal*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -293,7 +293,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'expired.plan.index') }}"
-                                class="{{ request()->is('*expired-plan*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*expired-plan*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" viewBox="0 0 48 48" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -317,7 +317,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'transaction.report.index') }}"
-                                class="{{ request()->is('*transactions/report*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*transactions/report*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -331,7 +331,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'remaining.balance.index') }}"
-                                class="{{ request()->is('*remaining-balance*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*remaining-balance*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -346,7 +346,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'followup.lead.index') }}"
-                                class="{{ request()->is('*follow-up-lead*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*follow-up-lead*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -361,7 +361,7 @@
                 </li>
                 <li>
                     <button @click="open = (open == 'workouts' ? null : 'workouts')"
-                        class="flex text-white items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="flex text-black items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <span class="flex items-center gap-2">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"
@@ -399,7 +399,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'workout.plans.index') }}"
-                                class="{{ request()->is('*workout-plans*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*workout-plans*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -414,7 +414,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'workout.categories.index') }}"
-                                class="{{ request()->is('*workout-categories*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*workout-categories*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
                                         fill="currentColor">
@@ -438,7 +438,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'exercises.index') }}"
-                                class="{{ request()->is('*exercises*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*exercises*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-5 h-5" width="48" height="48" viewBox="0 0 48 48"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -487,7 +487,7 @@
                 </li>
                 <!-- <li>
                     <a href="{{ route(auth()->user()->roleName . 'sms.index') }}"
-                        class="{{ request()->is('*SMS*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="{{ request()->is('*SMS*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <div>
                         <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path d="M2 5.25C2 3.45507 3.45507 2 5.25 2H15.75C17.5449 2 19 3.45507 19 5.25V10.0072C18.9173 10.0024 18.8339 10 18.75 10H17.5V5.25C17.5 4.2835 16.7165 3.5 15.75 3.5H5.25C4.2835 3.5 3.5 4.2835 3.5 5.25V16.75C3.5 17.7165 4.2835 18.5 5.25 18.5H6V18.75C6 19.185 6.06536 19.6048 6.1868 20H5.25C3.45508 20 2 18.5449 2 16.75V5.25ZM6.75 5C6.33579 5 6 5.33579 6 5.75C6 6.16421 6.33579 6.5 6.75 6.5H14.25C14.6642 6.5 15 6.16421 15 5.75C15 5.33579 14.6642 5 14.25 5H6.75ZM8 8.25C8 7.83579 8.33579 7.5 8.75 7.5H14.25C14.6642 7.5 15 7.83579 15 8.25C15 8.66421 14.6642 9 14.25 9H8.75C8.33579 9 8 8.66421 8 8.25ZM7 14.25C7 12.4551 8.45507 11 10.25 11H18.75C20.5449 11 22 12.4551 22 14.25V18.75C22 20.5449 20.5449 22 18.75 22H10.25C8.45507 22 7 20.5449 7 18.75V14.25ZM10.25 12.5C9.74571 12.5 9.29124 12.7133 8.9719 13.0546L14.5001 16.6084L20.0281 13.0546C19.7088 12.7133 19.2543 12.5 18.75 12.5H10.25ZM8.5 18.75C8.5 19.7165 9.2835 20.5 10.25 20.5H18.75C19.7165 20.5 20.5 19.7165 20.5 18.75V14.5345L14.9056 18.1309C14.6586 18.2897 14.3415 18.2897 14.0945 18.1309L8.5 14.5345V18.75Z" fill="currentColor"></path></svg>
                         </div>
@@ -496,7 +496,7 @@
                 </li> -->
                 <li>
                     <a href="{{ route(auth()->user()->roleName . 'attendance.index') }}"
-                        class="{{ request()->is('*attendance/index*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="{{ request()->is('*attendance/index*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <div>
                         <svg class="w-6 h-6" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M36.9896 29.0025C33.3205 28.9646 31.2731 29.3354 27.378 30.9258L26.622 29.0742C30.7491 27.389 33.0599 26.9618 37.0103 27.0027L36.9896 29.0025Z" fill="currentColor"></path>
@@ -536,7 +536,7 @@
                 <!-- ITEM -->
                 <li>
                     <a href="{{ route(auth()->user()->roleName . 'dashboard') }}"
-                        class="{{ request()->is('*dashboard') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded">
+                        class="{{ request()->is('*dashboard') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded">
                         <div class="pr-2">
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -548,7 +548,7 @@
                 </li>
                 <li>
                     <button @click="open = (open == 'users' ? null : 'users')"
-                        class="flex text-white items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="flex text-black items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <span class="flex items-center gap-2">
                             <svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -579,7 +579,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'user.index') }}"
-                                class="{{ request()->is('*/members*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*/members*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"
                                         fill="currentColor">
@@ -595,7 +595,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'trainers.index') }}"
-                                class="{{ request()->is('*/trainers*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*/trainers*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-1">
                                     <svg class="w-5 h-5" width="24" height="24" stroke-width="1.5"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -626,7 +626,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'lead.index') }}"
-                                class="{{ request()->is('*leads*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                                class="{{ request()->is('*leads*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -640,7 +640,7 @@
                         </li>
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'deleted.member.index') }}"
-                                class="{{ request()->is('*deleted-members*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                                class="{{ request()->is('*deleted-members*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -656,7 +656,7 @@
                         @can('isAdmin')
                             <li>
                                 <a href="{{ route(auth()->user()->roleName . 'staff.index') }}"
-                                    class="{{ request()->is('*staffs*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }}  flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                                    class="{{ request()->is('*staffs*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }}  flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                                     <div class="pr-2">
                                         <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                             id="mdi-human-male-board-poll" viewBox="0 0 24 24">
@@ -674,7 +674,7 @@
                 {{-- personal trainer --}}
                 <li>
                     <a href="{{ route(auth()->user()->roleName . 'pt.index') }}"
-                        class="{{ request()->is('*personal_training*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="{{ request()->is('*personal_training*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center gap-2 w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <div>
                             <svg class="w-6 h-6" width="24" height="24" stroke-width="1.5"
                                 viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -702,7 +702,7 @@
                     {{-- Branch --}}
                     <li>
                         <a href="{{ route(auth()->user()->roleName . 'branch.index') }}"
-                            class="{{ request()->is('*branches*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600 ">
+                            class="{{ request()->is('*branches*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500 ">
                             <div class="pr-2">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                     fill="currentColor">
@@ -722,7 +722,7 @@
                     {{-- Membership Plans --}}
                     <li>
                         <a href="{{ route(auth()->user()->roleName . 'membershipplan.index') }}"
-                            class="{{ request()->is('*/plans*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                            class="{{ request()->is('*/plans*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                             <div class="pr-2">
                                 <svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
@@ -737,7 +737,7 @@
                 @endcan
                 <li>
                     <button @click="open = (open == 'reports' ? null : 'reports')"
-                        class="flex text-white items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="flex text-black items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <span class="flex items-center gap-2">
                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
                                 fill="currentColor">
@@ -775,7 +775,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'upcoming.renewal.index') }}"
-                                class="{{ request()->is('*upcoming-renewal*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*upcoming-renewal*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -790,7 +790,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'expired.plan.index') }}"
-                                class="{{ request()->is('*expired-plan*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*expired-plan*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" viewBox="0 0 48 48" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -814,7 +814,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'transaction.report.index') }}"
-                                class="{{ request()->is('*transactions/report*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*transactions/report*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -828,7 +828,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'remaining.balance.index') }}"
-                                class="{{ request()->is('*remaining-balance*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*remaining-balance*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -843,7 +843,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'followup.lead.index') }}"
-                                class="{{ request()->is('*follow-up-lead*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*follow-up-lead*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -858,7 +858,7 @@
                 </li>
                 <li>
                     <button @click="open = (open == 'workouts' ? null : 'workouts')"
-                        class="flex text-white items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                        class="flex text-black items-center justify-between w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                         <span class="flex items-center gap-2">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"
@@ -896,7 +896,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'workout.plans.index') }}"
-                                class="{{ request()->is('*workout-plans*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*workout-plans*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -911,7 +911,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'workout.categories.index') }}"
-                                class="{{ request()->is('*workout-categories*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*workout-categories*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
                                         fill="currentColor">
@@ -936,7 +936,7 @@
                         <!-- ITEM -->
                         <li>
                             <a href="{{ route(auth()->user()->roleName . 'exercises.index') }}"
-                                class="{{ request()->is('*exercises*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600">
+                                class="{{ request()->is('*exercises*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex text-black items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500">
                                 <div class="pr-2">
                                     <svg class="w-5 h-5" width="48" height="48" viewBox="0 0 48 48"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -985,7 +985,7 @@
                 </li>
                 <li>
                     <a href="{{ route(auth()->user()->roleName . 'profile.edit') }}"
-                        class="{{ request()->is('*profile*') ? ' text-white bg-orange-600' : 'hover:text-white hover:bg-orange-600' }} flex gap-2 text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-600"
+                        class="{{ request()->is('*profile*') ? ' text-white bg-orange-500' : 'hover:text-white hover:bg-orange-500' }} flex gap-2 text-white items-center w-full py-1.5 px-2 rounded hover:text-white hover:bg-orange-500"
                         role="menuitem" tabindex="-1" id="user-menu-item-0">
                         <svg class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -1006,7 +1006,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-dropdown-link :href="route('logout')"
-                            class="flex gap-2 text-white items-center w-full py-1.5 !px-2 rounded hover:text-white hover:bg-orange-600"
+                            class="flex gap-2 text-white items-center w-full py-1.5 !px-2 rounded hover:text-white hover:bg-orange-500"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
