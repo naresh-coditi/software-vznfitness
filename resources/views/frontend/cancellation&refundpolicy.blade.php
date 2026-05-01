@@ -1,6 +1,6 @@
 <x-guest-layout>
     @include('frontend.layouts.header')
-    <section class="flex flex-col items-center justify-center gap-8 mb-5">
+    <section class="max-w-6xl mx-auto flex flex-col items-center justify-center gap-8 mb-5">
         <section class="space-y-8 md:mt-5 mt-2 md:p-12 p-6">
             <article class="space-y-4">
                 <h2 class="md:text-3xl text-lg font-semibold">AGREEMENT</h2>
@@ -345,5 +345,6 @@
             </article>
         </section>
     </section>
+    <footer class="bg-neutral-700  text-slate-300 p-4 text-sm text-center">© 2026 VZN Fitness. ALL RIGHTS RESERVED.</footer>
     @include('frontend.layouts.footer')
 </x-guest-layout>

@@ -32,27 +32,34 @@
                     </a>
                 </div>
 
+                {{-- <!-- toggel sidebar -->
+                <div class="text-white cursor-pointer hidden md:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div> --}}
             </div>
-
             <div class="hidden md:flex flex-1 items-center px-6" x-data="memberSearch()">
-                <div class="relative w-full max-w-2xl mx-auto" @click.outside="open = false">
+                <div class="relative w-full max-w-2xl mx-auto py-2" @click.outside="open = false">
                     <div
-                        class="flex items-center gap-3 rounded-2xl border border-indigo-500 bg-[#3f3d7a] px-4 py-3 text-white shadow-lg shadow-indigo-200/40">
-                        <svg class="h-5 w-5 text-white/60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        class="flex items-center gap-3 rounded-xl border border-slate-400 bg-white px-4   text-white   ">
+                        <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m21 21-4.35-4.35m1.85-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" />
                         </svg>
                         <input type="search" x-model="query" @input.debounce.300ms="fetchMembers()"
                             placeholder="Search - Member | Enquiry"
-                            class="w-full border-0 bg-transparent text-white placeholder:text-white/60 focus:outline-none focus:ring-0" />
+                            class="w-full border-0 bg-transparent text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-0" />
                     </div>
 
                     <div x-cloak x-show="open" x-transition
                         class="absolute left-0 right-0 top-full z-50 mt-3 h-[32rem] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
                         <template x-if="loading">
                             <div class="flex items-center gap-3 px-5 py-4 text-sm font-medium text-slate-600">
-                                <svg class="h-4 w-4 animate-spin text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg class="h-4 w-4 animate-spin text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24">
                                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
                                         stroke-width="4"></circle>
@@ -87,7 +94,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="min-w-0 flex-1 rounded-2xl border-l-4 border-indigo-500 bg-slate-50 p-4">
+                                    <div class="min-w-0 flex-1 rounded-2xl border-l-4 border-amber-500 bg-slate-50 p-4">
                                         <div class="flex items-start justify-between gap-4">
                                             <div>
                                                 <div class="text-lg font-semibold text-slate-800" x-text="member.membership_name || 'Membership'"></div>
@@ -121,6 +128,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="hidden md:flex items-stretch">
                 <!-- Profile Menu DT -->
                 <div class="ml-4 flex md:ml-6 ">

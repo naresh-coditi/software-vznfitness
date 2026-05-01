@@ -74,7 +74,7 @@
     .bg-brand { background-color: var(--brand) !important; }
     .text-brand { color: var(--brand) !important; }
     .border-brand { border-color: var(--brand) !important; }
-    .hover\:bg-brand-700:hover { background-color: var(--brand-700) !important; }
+    .hover\:bg-brand-700:hover { background-color: var(--brand-600) !important; }
     .focus\:ring-brand:focus { --tw-ring-color: var(--brand) !important; }
     .focus-visible\:outline-brand:focus-visible { outline-color: var(--brand) !important; }
 
