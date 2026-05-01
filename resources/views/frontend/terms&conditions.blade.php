@@ -1,7 +1,7 @@
 <x-guest-layout>
     @include('frontend.layouts.header')
     <x-auth-session-status class="mb-4" :status="session('status')" />
-    <section class="container mx-auto flex flex-col items-center justify-center gap-8 mb-5">
+    <section class="max-w-6xl mx-auto flex flex-col items-center justify-center gap-8 mb-5">
         <section class="space-y-8 md:p-12 p-6 md:mt-5 mt-2">
             <article class="space-y-4">
                 <h1 class="md:text-3xl text-xl font-semibold mb-4">Terms and Conditions</h1>
@@ -515,5 +515,6 @@
             </article>
         </section>
     </section>
+    <footer class="bg-neutral-700  text-slate-300 p-4 text-sm text-center">© 2026 VZN Fitness. ALL RIGHTS RESERVED.</footer>
     @include('frontend.layouts.footer')
 </x-guest-layout>
