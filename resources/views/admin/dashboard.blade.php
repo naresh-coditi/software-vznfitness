@@ -72,7 +72,7 @@
             </svg>
             </x-slot>
         </x-dashboard-tile>
-        <x-liability-card :liabilities="$liabilities" />
+        
     </div>
     
     <!-- Profile Card -->
@@ -117,6 +117,9 @@
         @can('isAdmin')
             <section class="py-4 flex flex-col gap-y-6">
                 <div class="flex md:flex-row flex-col gap-x-6 gap-y-6 md:gap-y-0">
+                    <div class="md:w-1/2 bg-white border rounded-lg shadow-md shadow-gray-100/30">
+<x-liability-card :liabilities="$liabilities" />
+                    </div>
                     <div class="md:w-1/2 bg-white p-4 border rounded-lg shadow-md shadow-gray-100/30">
                         <div class="flex items-center justify-between gap-6">
                             <h2>{{ __('Total Sales : ₹ ') . array_sum($monthlySalesData) }}</h2>

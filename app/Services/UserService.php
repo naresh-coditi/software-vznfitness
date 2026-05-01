@@ -136,27 +136,6 @@ class UserService
     public function updateUser(User $user, Request $request)
     {
         try {
-            // #region agent log
-            file_put_contents(
-                base_path('debug-fc005a.log'),
-                json_encode([
-                    'sessionId' => 'fc005a',
-                    'runId' => 'members-edit-2',
-                    'hypothesisId' => 'H1',
-                    'location' => 'app/Services/UserService.php:updateUser:entry',
-                    'message' => 'updateUser called',
-                    'data' => [
-                        'user_id' => $user->id,
-                        'has_image_file' => $request->hasFile('image'),
-                        'existing_image_path' => $user->image->path ?? null,
-                        'has_profile_relation' => (bool) $user->UserProfile,
-                        'has_latest_plan' => (bool) $user->latestPlan,
-                    ],
-                    'timestamp' => round(microtime(true) * 1000),
-                ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                FILE_APPEND
-            );
-            // #endregion
             $user = DB::transaction(function () use ($user, $request) {
                 $user->update([
                     'phone' => $request->phone,
@@ -164,43 +143,7 @@ class UserService
                     'member_id' => $user->id + 1000,
                     'branch_id' => $request->branch,
                 ]);
-                // #region agent log
-                file_put_contents(
-                    base_path('debug-fc005a.log'),
-                    json_encode([
-                        'sessionId' => 'fc005a',
-                        'runId' => 'members-edit-2',
-                        'hypothesisId' => 'H1',
-                        'location' => 'app/Services/UserService.php:updateUser:afterUserUpdate',
-                        'message' => 'User base record updated',
-                        'data' => [
-                            'user_id' => $user->id,
-                            'phone' => $request->phone,
-                            'branch' => $request->branch,
-                        ],
-                        'timestamp' => round(microtime(true) * 1000),
-                    ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                    FILE_APPEND
-                );
-                // #endregion
 
-                // #region agent log
-                file_put_contents(
-                    base_path('debug-fc005a.log'),
-                    json_encode([
-                        'sessionId' => 'fc005a',
-                        'runId' => 'members-edit-2',
-                        'hypothesisId' => 'H1',
-                        'location' => 'app/Services/UserService.php:updateUser:beforeProfileUpdate',
-                        'message' => 'About to update profile',
-                        'data' => [
-                            'profile_id' => $user->UserProfile->id ?? null,
-                        ],
-                        'timestamp' => round(microtime(true) * 1000),
-                    ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                    FILE_APPEND
-                );
-                // #endregion
                 $user->UserProfile->updateOrCreate(['id' => $user->UserProfile->id ?? null], [
                     'user_id' => $user->id,
                     'user_type' => UserType::MEMBER['value'],
@@ -211,45 +154,10 @@ class UserService
                     'created_by' => Auth::id(),
                     'updated_by' => Auth::id(),
                 ]);
-                // #region agent log
-                file_put_contents(
-                    base_path('debug-fc005a.log'),
-                    json_encode([
-                        'sessionId' => 'fc005a',
-                        'runId' => 'members-edit-2',
-                        'hypothesisId' => 'H1',
-                        'location' => 'app/Services/UserService.php:updateUser:afterProfileUpdate',
-                        'message' => 'Profile updated',
-                        'data' => [
-                            'profile_id' => $user->UserProfile->id ?? null,
-                        ],
-                        'timestamp' => round(microtime(true) * 1000),
-                    ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                    FILE_APPEND
-                );
-                // #endregion
 
                 if ($request->file('image') && $user->image->path) {
                     $uploadedImage = $request->file('image');
                     $uploadedImageSize = $uploadedImage->getSize();
-                    // #region agent log
-                    file_put_contents(
-                        base_path('debug-fc005a.log'),
-                        json_encode([
-                            'sessionId' => 'fc005a',
-                            'runId' => 'members-edit-2',
-                            'hypothesisId' => 'H2',
-                            'location' => 'app/Services/UserService.php:updateUser:imageUpdateBranch',
-                            'message' => 'Updating existing image record',
-                            'data' => [
-                                'old_path' => $user->image->path,
-                                'new_name' => $request->file('image')->getClientOriginalName(),
-                            ],
-                            'timestamp' => round(microtime(true) * 1000),
-                        ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                        FILE_APPEND
-                    );
-                    // #endregion
                     $user->image->update([
                         'path' => storeImage($uploadedImage, $user->image->path),
                         'type' => 'png',
@@ -258,23 +166,6 @@ class UserService
                 } elseif ($request->file('image')) {
                     $uploadedImage = $request->file('image');
                     $uploadedImageSize = $uploadedImage->getSize();
-                    // #region agent log
-                    file_put_contents(
-                        base_path('debug-fc005a.log'),
-                        json_encode([
-                            'sessionId' => 'fc005a',
-                            'runId' => 'members-edit-2',
-                            'hypothesisId' => 'H2',
-                            'location' => 'app/Services/UserService.php:updateUser:imageCreateBranch',
-                            'message' => 'Creating new image record',
-                            'data' => [
-                                'new_name' => $request->file('image')->getClientOriginalName(),
-                            ],
-                            'timestamp' => round(microtime(true) * 1000),
-                        ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                        FILE_APPEND
-                    );
-                    // #endregion
                     $media = Media::make([
                         'name' => $uploadedImage->getClientOriginalName(),
                         'path' => storeImage($uploadedImage),
@@ -287,24 +178,6 @@ class UserService
                 }
 
                 if ($request->membership_duration) {
-                    // #region agent log
-                    file_put_contents(
-                        base_path('debug-fc005a.log'),
-                        json_encode([
-                            'sessionId' => 'fc005a',
-                            'runId' => 'members-edit-2',
-                            'hypothesisId' => 'H3',
-                            'location' => 'app/Services/UserService.php:updateUser:beforeLatestPlanUpdate',
-                            'message' => 'About to update latest plan',
-                            'data' => [
-                                'latest_plan_id' => $user->latestPlan->id ?? null,
-                                'duration' => $request->membership_duration,
-                            ],
-                            'timestamp' => round(microtime(true) * 1000),
-                        ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                        FILE_APPEND
-                    );
-                    // #endregion
                     $user->latestPlan->update([
                         'name' => $request->membership_duration,
                         'amount' => $request->amount,
@@ -313,23 +186,6 @@ class UserService
                         'end_date' => $request->end_date,
                         'notes' => $request->note
                     ]);
-                    // #region agent log
-                    file_put_contents(
-                        base_path('debug-fc005a.log'),
-                        json_encode([
-                            'sessionId' => 'fc005a',
-                            'runId' => 'members-edit-2',
-                            'hypothesisId' => 'H3',
-                            'location' => 'app/Services/UserService.php:updateUser:afterLatestPlanUpdate',
-                            'message' => 'Latest plan updated',
-                            'data' => [
-                                'latest_plan_id' => $user->latestPlan->id ?? null,
-                            ],
-                            'timestamp' => round(microtime(true) * 1000),
-                        ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                        FILE_APPEND
-                    );
-                    // #endregion
                 }
 
                 return $user;
@@ -337,25 +193,6 @@ class UserService
 
             return $user;
         } catch (Exception $e) {
-            // #region agent log
-            file_put_contents(
-                base_path('debug-fc005a.log'),
-                json_encode([
-                    'sessionId' => 'fc005a',
-                    'runId' => 'members-edit-2',
-                    'hypothesisId' => 'H4',
-                    'location' => 'app/Services/UserService.php:updateUser:exception',
-                    'message' => 'updateUser threw exception',
-                    'data' => [
-                        'error' => $e->getMessage(),
-                        'line' => $e->getLine(),
-                        'file' => $e->getFile(),
-                    ],
-                    'timestamp' => round(microtime(true) * 1000),
-                ], JSON_UNESCAPED_SLASHES) . PHP_EOL,
-                FILE_APPEND
-            );
-            // #endregion
             Log::error($e);
             return false;
         }

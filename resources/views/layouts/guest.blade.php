@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ __('EliteEdge Gym and Spa') }}</title>
+    <title>{{ __('VZN Fitness') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/pikaday.min.css') }}">
